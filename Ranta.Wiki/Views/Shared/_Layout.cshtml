@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Ranta Wiki</title>
+    <link href="http://static.ranta.cn/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/static/styles/ranta.wiki.css" rel="stylesheet" />
+    @RenderSection("styles", false)
+</head>
+<body>
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("应用程序名称", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
+                    <li>@Html.ActionLink("新建", "New", "Home")</li>
+                    <li>@Html.ActionLink("示例", "Demo", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <script src="http://static.ranta.cn/jquery/3.1.1/jquery-3.1.1.min.js"></script>
+    <script src="http://static.ranta.cn/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://static.ranta.cn/angularjs/1.6.4/angular.min.js"></script>
+    <script src="http://static.ranta.cn/angularjs/1.6.4/angular-resource.min.js"></script>
+
+    <script src="~/static/scripts/service/BlogService.js"></script>
+    <script src="~/static/scripts/controllers/newBlogController.js"></script>
+
+    @RenderSection("scripts", false)
+
+    <script src="~/static/scripts/app.js"></script>
+</body>
+</html>

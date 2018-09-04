@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "新建";
+}
+
+@section styles{
+    <link href="http://static.ranta.cn/codemirror/5.19.0/lib/codemirror.css" rel="stylesheet" />
+    <link href="~/static/styles/ranta.wiki.min.css" rel="stylesheet" />
+}
+@section scripts{
+    <script src="http://static.ranta.cn/codemirror/5.19.0/lib/codemirror.js"></script>
+    <script src="http://static.ranta.cn/codemirror/5.19.0/addon/selection/active-line.js"></script>
+    <script src="http://static.ranta.cn/codemirror/5.19.0/addon/mode/overlay.js"></script>
+    <script src="http://static.ranta.cn/codemirror/5.19.0/mode/markdown/markdown.js"></script>
+    <script src="http://static.ranta.cn/codemirror/5.19.0/mode/gfm/gfm.js"></script>
+    <script src="http://static.ranta.cn/angular-ui-codemirror/0.3.0/ui-codemirror.js"></script>
+}
+@Html.AntiForgeryToken()
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li>新建</li>
+    </ul>
+    <div ng-app="wiki" ng-controller="new_blog_controller" ng-init="init()">
+        <form name="myForm">
+            <blockquote>
+                <input type="text" class="blog_title" placeholder="文章标题" name="title" ng-model="blog.title" required />
+            </blockquote>
+            <p ng-show="myForm.title.$dirty && myForm.title.$invalid">请输入文章标题</p>
+        </form>
+        <div class="bordered mb15">
+            <div ui-codemirror ng-model="blog.body"></div>
+        </div>
+        <div>
+            <button class="btn btn-default" ng-click="create()">保存</button>
+        </div>
+    </div>
+</div>

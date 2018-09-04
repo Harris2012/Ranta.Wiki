@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        @Html.ActionLink("新建", "New", "Home", null, new { @class = "btn btn-info" })
+    </div>
+</div>
+
+<ul class="nav">
+    @for (int i = 0; i < 3; i++)
+    {
+        <li>@Html.ActionLink("titie " + i, "Index", "Blog", new { ename = "ename_" + i }, new { target = "_blank" })</li>
+    }
+</ul>
